@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    홈이라능
-    {{texts}}
-</body>
-</html>
+{% extends 'inflearn_lecture/base.html' %}
+
+{% block content %}
+
+    <h2>인기 강의</h2>
+    {% for text in texts %}
+        <img src=" ../../media/{{ text.img_url }} " width="100">
+        <br/>
+        {{ text.title }}
+        <br/>
+    {% endfor %}
+
+{% endblock %}

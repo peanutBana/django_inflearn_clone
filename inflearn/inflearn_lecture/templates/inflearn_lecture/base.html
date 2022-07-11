@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #main{
+            width:100%;
+            height:50vh;
+            background-image:url("https://cdn.inflearn.com/public/main_sliders/04081c01-4aee-40ad-a500-5260f1cfd508/main_521_%EC%9D%B8%ED%94%84%EB%9F%B0%EC%86%8C%EA%B0%9C.png");
+        }
+
+        nav{
+            width:100%;
+            height:60px;
+            background-color:white;
+            line-height:20px;
+        }
+
+        nav ul{
+            float:right;
+        }
+
+        nav ul li{
+            margin:10px;
+            list-style-type:none;
+            display:inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main">
+        <nav>
+            <img src="https://images.velog.io/images/doeunllee/post/6ddaeab8-d4cc-400b-a5fb-c11687bab996/inflearn001.png" width="150">
+            <ul>
+                <li>메뉴1</li>
+                <li>메뉴2</li>
+                <li>메뉴3</li>
+                <li>메뉴4</li>
+                <li>메뉴5</li>
+            </ul>
+        </nav>
+    </div>
+
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>

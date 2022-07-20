@@ -3,7 +3,8 @@
 {% block content %}
 
 <div style="width:500px; margin:auto; margin-top:200px; margin-bottom:200px;">
-    <form>
+    <form method="POST" actio="{% url 'login' %}">
+        {% csrf_token %}
         <div class="form-group">
           <label for="exampleInputEmail1">로그인 이메일</label>
           <input name="email" class="form-control" id="exampleInputEmail1" placeholder="이메일을 입력하세요">

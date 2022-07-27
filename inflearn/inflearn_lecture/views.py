@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .models import myText
@@ -59,3 +59,10 @@ def logout(request):
 
     auth.logout(request)
     return redirect('/')
+
+
+def lecture_list_info(request, pk):
+    
+   board_contents = get_object_or_404(myText, pk = pk)
+
+   print(board_contents)

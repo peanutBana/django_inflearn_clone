@@ -38,5 +38,17 @@
         </form>
     </div>
 
+    <div style="width:800px; margin:auto; padding:10px">
+        {% for comment_item in comment %}
+
+        
+            <div style="border:1px solid gray; border-radius:10px;">
+                <h2>writer : {{ comment_item.writer }}</h2>
+                <h2>rate : {{ comment_item.rate }}</h2>
+                <h2>comment : {{ comment_item.comment }}</h2>
+            </div>
+
+        {% endfor %}
+    </div>  
 
 {% endblock %}

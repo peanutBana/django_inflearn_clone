@@ -64,8 +64,15 @@ def logout(request):
 def lecture_list_info(request, pk):
     
     board_contents = get_object_or_404(myText, pk = pk)
+    comment = Comment.objects.filter(lecture=board_contents)
 
-    print(board_contents)
+    print('comment : ',comment )
+
+
+    if request.user.is_authenticated:
+        print(request.user.username)
+
+
 
     if request.method == "POST":
         rate = request.POST['rate']
@@ -76,4 +83,4 @@ def lecture_list_info(request, pk):
 
         return redirect('/lecture_list/' + str(pk))
 
-    return render( request, 'inflearn_lecture/lecture_list_info.html', {'board_contents':board_contents})
+    return render( request, 'inflearn_lecture/lecture_list_info.html', {'board_contents':board_contents, 'comment':comment})

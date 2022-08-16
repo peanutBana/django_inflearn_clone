@@ -52,7 +52,7 @@ def join(request):
         return redirect('/')
 
     print("join 마지막 부분") 
-    return render( request, 'inflearn_lecture/join.html')
+    return render(request, 'inflearn_lecture/join.html')
 
 
 def logout(request):
@@ -63,6 +63,7 @@ def logout(request):
 
 def lecture_list_info(request, pk):
     
-   board_contents = get_object_or_404(myText, pk = pk)
+    board_contents = get_object_or_404(myText, pk = pk)
 
-   print(board_contents)
+    print(board_contents)
+    return render( request, 'inflearn_lecture/lecture_list_info.html', {'board_contents':board_contents})

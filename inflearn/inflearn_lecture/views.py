@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
-from .models import myText
+from .models import myText, Comment
 
 # Create your views here.
 def home_list(request):
@@ -15,7 +15,7 @@ def lecture_list(request):
     hot_lecture = myText.objects.filter(category="인기")
     print(texts)
     return render(request, 'inflearn_lecture/lecture_list.html',
-                {'texts':texts, 'hot_lecture':hot_lecture})
+                {'texts':texts, ' hot_lecture':hot_lecture})
 
 def login(request):
 
@@ -66,4 +66,14 @@ def lecture_list_info(request, pk):
     board_contents = get_object_or_404(myText, pk = pk)
 
     print(board_contents)
+
+    if request.method == "POST":
+        rate = request.POST['rate']
+        writer = request.POST['writer']
+        comment = request.POST['comment']     
+
+        Comment.objects.create(lecture=board_contents, writer=writer, rate=rate, comment=comment)
+
+        return redirect('/lecture_list/' + str(pk))
+
     return render( request, 'inflearn_lecture/lecture_list_info.html', {'board_contents':board_contents})

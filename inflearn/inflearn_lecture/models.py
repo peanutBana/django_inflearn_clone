@@ -19,3 +19,17 @@ class myText(models.Model):
 
     def __str__(self):
         return self.title
+
+class Comment(models.Model):
+    lecture = models.ForeignKey(myText, on_delete=models.CASCADE)
+    writer = models.CharField(max_length=200, null=True)
+    rate = models.CharField(max_length=200, null=True)
+    comment = models.CharField(max_length=200, null=True)
+
+
+    def publish(self):
+        self.save()
+
+    def __str__(self):
+        return self.comment 
+

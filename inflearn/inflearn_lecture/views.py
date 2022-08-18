@@ -84,3 +84,17 @@ def lecture_list_info(request, pk):
         return redirect('/lecture_list/' + str(pk))
 
     return render( request, 'inflearn_lecture/lecture_list_info.html', {'board_contents':board_contents, 'comment':comment})
+
+
+def comment_remove(request, pk):
+
+    if request.method == "POST":
+        Comment.objects.get(pk=pk).delete()
+        return redirect('/lecture_list')
+
+
+def show_lecture(request, pk):
+    
+    board_contents = get_object_or_404(myText, pk = pk)
+
+    return render(request, 'inflearn_lecture/show_lecture.html')

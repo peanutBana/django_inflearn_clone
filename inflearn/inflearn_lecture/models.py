@@ -15,13 +15,13 @@ class myText(models.Model):
     board_text = RichTextUploadingField(null=True)
 
     lecture_title1 = models.CharField(max_length=200, null=True)
-    lecture_video1 = models.CharField(max_length=200, null=True)
+    lecture_video1 = models.CharField(max_length=500, null=True)
     lecture_title2 = models.CharField(max_length=200, null=True)
-    lecture_video2 = models.CharField(max_length=200, null=True)
+    lecture_video2 = models.CharField(max_length=500, null=True)
     lecture_title3 = models.CharField(max_length=200, null=True)
-    lecture_video3 = models.CharField(max_length=200, null=True)
+    lecture_video3 = models.CharField(max_length=500, null=True)
     lecture_title4 = models.CharField(max_length=200, null=True)
-    lecture_video4 = models.CharField(max_length=200, null=True)
+    lecture_video4 = models.CharField(max_length=500, null=True)
 
 
     def publish(self):

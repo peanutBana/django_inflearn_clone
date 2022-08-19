@@ -51,25 +51,37 @@
             <tr>
                 {% if board_contents.lecture_title1 %}
                     <td>
-                        <a href="{% url 'show_lecture' pk=border_contents.pk %}">
-                        {{ board_contents.lecture_title1 }}
+                        <a href="{% url 'show_lecture' pk=board_contents.pk %}">
+                            {{ board_contents.lecture_title1 }}
                         </a>
                     </td>
                 {% endif %}
             </tr>
             <tr>
-                {% if board_contents.lecture_title1 %}
-                <td>{{ board_contents.lecture_title2 }}</td>
+                {% if board_contents.lecture_title2 %}
+                    <td>
+                        <a href="{% url 'show_lecture' pk=board_contents.pk %}">
+                            {{ board_contents.lecture_title2 }}
+                        </a>
+                    </td>
                 {% endif %}
             </tr>
             <tr>
                 {% if board_contents.lecture_title3 %}
-                <td>{{ board_contents.lecture_title3 }}</td>
+                    <td>
+                        <a href="{% url 'show_lecture' pk=board_contents.pk %}">
+                            {{ board_contents.lecture_title3 }}
+                        </a> 
+                    </td>
                 {% endif %}
             </tr>  
             <tr>
                 {% if board_contents.lecture_title4 %}
-                <td>{{ board_contents.lecture_title4 }}</td>
+                    <td>
+                        <a href="{% url 'show_lecture' pk=board_contents.pk %}">
+                            {{ board_contents.lecture_title4 }}
+                        </a> 
+                    </td>
                 {% endif %}
             </tr>
             </a>

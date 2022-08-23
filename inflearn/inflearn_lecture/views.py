@@ -105,7 +105,8 @@ def create_lecture(request):
 
     if request.method == 'POST':
         form = LectureForm(request.POST)
-        if form.is_valid:
+
+        if form.is_valid():
             myText = form.save(commit=False)
             myText.author = request.user
             myText.save()

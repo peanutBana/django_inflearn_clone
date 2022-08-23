@@ -16,4 +16,6 @@ class LectureForm(forms.ModelForm):
             'lecture_video2',
             'lecture_title3',
             'lecture_video3',
+            'lecture_title4',
+            'lecture_video4',
         )

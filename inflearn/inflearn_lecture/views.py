@@ -104,7 +104,7 @@ def show_lecture(request, pk):
 def create_lecture(request):
 
     if request.method == 'POST':
-        form = LectureForm(request.POST)
+        form = LectureForm(request.POST, request.FILES)
 
         if form.is_valid():
             myText = form.save(commit=False)
@@ -115,3 +115,32 @@ def create_lecture(request):
     lecture_form = LectureForm()
     
     return render(request, 'inflearn_lecture/create_lecture.html',{'lecture_form' : lecture_form} )
+
+
+def my_lecture(request):
+
+    lectures = myText.objects.filter(author=request.user)
+
+    return render(request, 'inflearn_lecture/my_lecture.html',{'lectures' : lectures} )
+
+
+def edit_lecture(request,pk):
+    
+    lecture = get_object_or_404(myText, pk=pk)
+
+
+    if request.method == 'POST':
+        form = LectureForm(request.POST, request.FILES, instance=lecture)
+        
+        if form.is_valid():
+            lecture = form.save(commit=False)
+            lecture.author = request.user
+            lecture.save()
+
+            return redirect('/my_lecture')
+
+    else:
+        form = LectureForm(instance=lecture)
+
+
+    return render(request, 'inflearn_lecture/edit_lecture.html', {'lecture_form':form, 'primary_key':pk})
